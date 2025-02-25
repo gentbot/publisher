@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../style.css">
+    <title>Automated writing Publisher</title>
+  </head>
+  <body>
+    <header>
+      <h1>Automated writing Publisher</h1>
+              <h2>Creating project to web published documentation
+system</h2>
+            <p>Created on: February 24, 2025</p>
+          </header>
+    <main><p>Concept: Create a system that can take specific markdown
+files created in Obsidian and process them into html files that can be
+uploaded to the web.</p>
+<p>Reason: Seemed like an interesting project</p>
+<details>
+<summary>
+Process
+</summary>
+<pre><code>1. Use a tool like Pandoc to convert `*.md` files into HTML files.
+2. Put the output into a specific folder
+3. Commit the changes to that folder and open a pr
+4. Have a publishing system watch that repo and push the artifacts to your website whenever there is an update
+5. Result. An automated blog style website that will function by continuing to take notes on projects, ideas, current progress, and anything else that is even remotely interesting</code></pre>
+</details>
+<p>This project started today. It seemed like an interesting concept so
+it made sense to try and make it happen, because why not? First things
+first I had to solidify the general idea. I want to remove as much
+friction as possible between myself and publishing writing to my
+website. Sure there are many great tools that let you spin up a blog
+that does all the things, but I am not really interested in more tools.
+Lets just keep it simple. So it made sense to create something that
+would be highly automated and effectively a set it and forget it, but it
+should be very flexible and have the ability to be updated at any
+point.</p>
+<p>The core concept centers around being able to make use of a current
+practice of writing notes and basic documentation about ideas for
+projects and interests in obsidian. These notes have been incredibly
+helpful in keeping track of new ideas, progress on projects and learning
+new things. Wouldn’t it be great if I could just have them automagically
+be published, if and when I wanted them to be made available?</p>
+<p>This is where the idea was formed. Using available tools ( cronjobs,
+bash, git ) could I create a system that would look through my Obsidian
+vault for specific files, convert them to html, organize them into
+appropriate folders and push that to the web with no intervention on my
+part beyond documenting the project itself? The answer was clearly yes.
+The next step was to figure out how I wanted it to work.</p>
+<p>Here is what I landed on for a first version:</p>
+<ul>
+<li>All posts must have some basic control to figure out if it should be
+published or ignored.
+<ul>
+<li>Solution: Use tags. Specifically the tag ( publish )</li>
+</ul></li>
+<li>All posts must be organized and timestamped
+<ul>
+<li>Solution: Use Obsidian templates to manage the creation of new notes
+and prefill them with timestamp properties and any other bit of useful
+metadata information</li>
+</ul></li>
+<li>All posts must can be edited, but that must be tracked on the system
+as well.
+<ul>
+<li>Solution: Use the same properties concept defined above to have an
+edited timestamp that will update automatically and present itself on
+the site</li>
+<li>Note: Any update or edit should not impact where the post is stored
+when converted to html</li>
+</ul></li>
+</ul>
+<p>Future versions will have other features. Here are a few that I am
+currently planning</p>
+<ul>
+<li>Automatic banner image generation based on the content of the post
+itself. The system should summarize the text, convert the concept into a
+prompt, put that prompt into an image generation pipeline, add a summary
+of that image to a banner image alt tag and push the resulting generated
+image up with the published page.</li>
+<li>Table on contents for the entire project. This too should be
+automated and updated with each new post</li>
+<li>Category filter or passive search using tags. Each post will have at
+least one category/tag associated with it. There should be a very simple
+way to select a tag and see all relevant entries related to that
+post.</li>
+</ul>
+<p>There are more features and ideas to come, but I think for the moment
+this is a great start. And if I want to meet the target of creating this
+project within a 24 hour window ( there is no reason for this timebox
+other than general curiosity ) I need to move along quite quickly, but
+without compromising the core concept or cutting corners. It’s ok to go
+fast, but that is no reason to be reckless.</p></main>
+  </body>
+</html>
