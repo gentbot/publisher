@@ -1,0 +1,31 @@
+name: Auto PR and Squash Merge
+
+on:
+  push:
+    branches:
+      - '*'  # Triggers for all branches except main (adjust as needed)
+      - '!main'  # Exclude main branch
+
+jobs:
+  auto-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        id: create_pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: ${{ github.ref_name }}
+          base: main
+          title: "Auto PR for ${{ github.ref_name }}"
+          body: "This PR was created automatically."
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Auto Squash Merge PR
+        if: steps.create_pr.outputs.pull-request-number
+        run: gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
