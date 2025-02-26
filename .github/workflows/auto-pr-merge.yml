@@ -2,9 +2,8 @@ name: Auto PR and Squash Merge
 
 on:
   push:
-    branches:
-      - '*'  # Triggers for all branches except main (adjust as needed)
-      - '!main'  # Exclude main branch
+    branches-ignore:
+      - main  # Exclude pushes to main
 
 jobs:
   auto-pr:
@@ -18,7 +17,7 @@ jobs:
         id: create_pr
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: ${{ github.ref_name }}
+          branch: "${{ github.ref_name }}"
           base: main
           title: "Auto PR for ${{ github.ref_name }}"
           body: "This PR was created automatically."
