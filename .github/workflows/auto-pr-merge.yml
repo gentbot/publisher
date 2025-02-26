@@ -22,10 +22,10 @@ jobs:
           base: main
           title: "Auto PR for ${{ github.ref_name }}"
           body: "This PR was created automatically."
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_GITHUB }}
 
       - name: Auto Squash Merge PR
         if: steps.create_pr.outputs.pull-request-number
         run: gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}
