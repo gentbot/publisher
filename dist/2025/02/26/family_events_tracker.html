@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../style.css">
+    <title>Family Events tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1>Family Events tracker</h1>
+              <h2>A family event display</h2>
+            <p>Created on: February 26, 2025</p>
+          </header>
+    <main><h2 id="summary">summary</h2>
+<p>This family event tracker will use <code>n</code> eink displays
+powered by ESP-32. They will display the local weather conditions to
+help us prepare for the day and also combine all family member calendar
+events for the day, or week.</p>
+<h2 id="tech">tech</h2>
+<ul>
+<li>Go - backend to fetch weather, and events data</li>
+<li>js, html, css - using the gathered information generate the ui for
+the display and create the image that will be shown on the eink
+displays</li>
+<li>C++ - The controller for the eink display that will pull in the
+saved image of the weather and events as a bitmap and displays it to the
+screen.</li>
+<li>imagemagick - Used to convert any screen captured image into bmp,
+and bitmap array. More easily readable by the esp32</li>
+</ul>
+<h2 id="process">process</h2>
+<ul>
+<li>Using a cronjob the go application will fetch current weather and
+calendar events ( runs every 15 minutes)</li>
+<li>After fetching the data use playwright to spin up the webpage making
+use of the data to generate the images of various sizes that can fit on
+any eink displays in the system</li>
+<li>Process the saved image captured from the webpage to ensure that it
+is a 1-bit bitmap image that can be displayed on monochrome e-ink
+displays</li>
+<li>Every 30 minutes the e-ink displays fetch the saved image processes
+it and draws it to the screen. ( to preserve battery power the esp32
+goes into deep sleep after this process. IT take ~30 seconds. The esp32
+does not wake to fetch data during the night. Operating hours are
+between 6am and 1am every day)</li>
+</ul>
+<h2 id="concerns">concerns</h2>
+<p>The esp32 is underpowered and low on memory so displaying images from
+a local server comes with challenges as the specific boards being used
+have a max of 500kb of memory to work with. So pulling in large image
+files is not reliable. The best option is to stream the data into a
+bitmap array and draw it to the display as it becomes ready. Repeating
+this process until the image is complete.</p>
+<p>Being new to many of the pieces, like C++ and Go it is unclear at
+times if I am taking the most ideal approach to writing the code to make
+the application function, but perfect is not the goal. Getting it
+working in a reliable fashion that is automatic is the main goal.</p>
+<p>Fetching the events from google calendar is not the best experience
+at the moment. Every few days the token expires and even though I have
+refresh tokens it does not seem to work when trying to refresh it
+automatically. This might be a skill issue, but with each part of the
+system being separate it is straightforward to update each part
+individually.</p></main>
+  </body>
+</html>
