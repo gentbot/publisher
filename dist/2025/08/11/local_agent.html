@@ -1,49 +1,126 @@
-<h1 id="summary">Summary</h1>
-<p>Making a local only ai agent that can complete coding tasks in
-various language and take projects from start to finish. How would such
-a system work? What are the required pieces needed to make it function
-well? How can it be extended to add more capabilities?</p>
-<h1 id="objectives">Objectives</h1>
-<ol type="1">
-<li>Create an ai agent that can be run from the terminal.</li>
-<li>It should have the ability to code in multiple languages and iterate
-on simple ideas.</li>
-<li>It should have the ability to plan projects and write a project
-requirements document in order to faithfully execute the intended
-application.</li>
-<li>It should have the ability to point out where errors in logic or
-poorly defined requirements and expectations have been found.</li>
-</ol>
-<h1 id="future-addition">Future Addition</h1>
-<p>Voice mode - This will be a full speech to speech style interface
-that will encapsulate all the functionalities of the agent. This would
-allow for voice interaction with the agent to plan and execute on any
-idea at any time. - The voice mode should adjust how output is given. I
-will give notifications on long running tasks. Check in on progress and
-generally refrain from reciting every single word and step of a process
-unless asked. Soft launch or sandbox running of any project created
-using the agent. THe agent should be able to test if the project is in a
-runnable state. If it is not it should proactively try to fix any
-mistakes and run it again, as long as it remains below a max retry
-limit. Once that is reached it should ask for help.</p>
-<h1 id="why">Why</h1>
-<p>The purpose of this is not to make the most state of the art agent.
-It is instead to gain a better understanding of how to make and maintain
-some of these systems. How to add functionality and how to adequately
-customize them for multiple situations.</p>
-<h1 id="tech">Tech</h1>
-<ul>
-<li>Python</li>
-<li>Ollama</li>
-<li>markdown</li>
-</ul>
-<h1 id="concerns">Concerns</h1>
-<ul>
-<li>Not knowing what I am doing at all</li>
-<li>System fragility, as iteration takes time even though it is being
-worked on in concert with an ai</li>
-<li>So far the first version is pretty awful and simple to contain, but
-there is a possibility that given access to a computer the option for it
-to find a way outside of the main project directory and cause harm to
-the underlying system.</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Agent | The Static Journal</title>
+
+    <!-- Typography: Playfair Display for elegance, Inter for UI/Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- External stylesheet: your script should pass css_path metadata -->
+    <link rel="stylesheet" href="../../../base.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="/" class="site-title">The Static Journal</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- BREADCRUMB: YEAR / MONTH / DAY / TITLE -->
+        <!-- Uses placeholders if any component is missing -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <!-- Year -->
+                            <a href="/2025">2025</a>
+                        <span class="breadcrumb-separator">›</span>
+
+            <!-- Month -->
+                            <a href="/2025/08">08</a>
+                        <span class="breadcrumb-separator">›</span>
+
+            <!-- Day -->
+                            <a href="/2025/08/11">11</a>
+                        <span class="breadcrumb-separator">›</span>
+
+            <!-- Current article -->
+            <span class="breadcrumb-current">Local Agent</span>
+        </nav>
+
+        <article>
+            <header>
+                <h1 class="post-title">Local Agent</h1>
+
+                                    <p class="post-subhead">A local only
+ai agent</p>
+                
+                <div class="post-meta">
+                    <!-- created is already formatted (e.g., "January 12, 2025") -->
+                    <span>August 11, 2025</span>
+
+                                    </div>
+            </header>
+
+            <div class="post-content">
+                <h1 id="summary">Summary</h1>
+                <p>Making a local only ai agent that can complete coding
+                tasks in various language and take projects from start
+                to finish. How would such a system work? What are the
+                required pieces needed to make it function well? How can
+                it be extended to add more capabilities?</p>
+                <h1 id="objectives">Objectives</h1>
+                <ol type="1">
+                <li>Create an ai agent that can be run from the
+                terminal.</li>
+                <li>It should have the ability to code in multiple
+                languages and iterate on simple ideas.</li>
+                <li>It should have the ability to plan projects and
+                write a project requirements document in order to
+                faithfully execute the intended application.</li>
+                <li>It should have the ability to point out where errors
+                in logic or poorly defined requirements and expectations
+                have been found.</li>
+                </ol>
+                <h1 id="future-addition">Future Addition</h1>
+                <p>Voice mode - This will be a full speech to speech
+                style interface that will encapsulate all the
+                functionalities of the agent. This would allow for voice
+                interaction with the agent to plan and execute on any
+                idea at any time. - The voice mode should adjust how
+                output is given. I will give notifications on long
+                running tasks. Check in on progress and generally
+                refrain from reciting every single word and step of a
+                process unless asked. Soft launch or sandbox running of
+                any project created using the agent. THe agent should be
+                able to test if the project is in a runnable state. If
+                it is not it should proactively try to fix any mistakes
+                and run it again, as long as it remains below a max
+                retry limit. Once that is reached it should ask for
+                help.</p>
+                <h1 id="why">Why</h1>
+                <p>The purpose of this is not to make the most state of
+                the art agent. It is instead to gain a better
+                understanding of how to make and maintain some of these
+                systems. How to add functionality and how to adequately
+                customize them for multiple situations.</p>
+                <h1 id="tech">Tech</h1>
+                <ul>
+                <li>Python</li>
+                <li>Ollama</li>
+                <li>markdown</li>
+                </ul>
+                <h1 id="concerns">Concerns</h1>
+                <ul>
+                <li>Not knowing what I am doing at all</li>
+                <li>System fragility, as iteration takes time even
+                though it is being worked on in concert with an ai</li>
+                <li>So far the first version is pretty awful and simple
+                to contain, but there is a possibility that given access
+                to a computer the option for it to find a way outside of
+                the main project directory and cause harm to the
+                underlying system.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Post navigation intentionally removed for now (Q6 = YES) -->
+
+    </main>
+
+</body>
+</html>
