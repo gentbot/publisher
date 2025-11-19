@@ -205,3 +205,167 @@ h1.post-title {
     .post-content { font-size: 1rem; }
     .breadcrumb-nav { font-size: 0.75rem; }
 }
+
+
+/* =========================================================
+   Archive / Accordion Layout
+   ========================================================= */
+
+.archive-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 3rem 0 2rem;
+}
+
+.archive-root {
+    margin-bottom: 6rem;
+}
+
+/* Core accordion structure */
+
+.accordion-item {
+    width: 100%;
+    display: block;
+}
+
+/* Level 1 (Year) */
+
+.accordion-item.level-1 {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+}
+
+.accordion-item.level-1 > summary {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.accordion-item.level-1 > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Inner wrapper used at each level to indent child blocks */
+.accordion-inner {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Level 2 (Month) */
+
+.accordion-item.level-2 {
+    margin-left: 1.5rem;
+    border-left: 1px solid var(--border-color); /* vertical guide line */
+}
+
+.accordion-item.level-2 > summary {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 0 1rem 1.5rem;
+    color: var(--accent-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.accordion-item.level-2 > summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-item.level-2 > summary:hover {
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Level 3 (Day) */
+
+.accordion-item.level-3 {
+    margin-left: 1.5rem;
+}
+
+.accordion-item.level-3 > summary {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.accordion-item.level-3 > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Links inside a day */
+
+.accordion-content {
+    padding: 0.25rem 0 0.75rem 3rem;
+}
+
+.archive-link {
+    display: block;
+    text-decoration: none;
+    color: var(--accent-color);
+    font-size: 1rem;
+    padding: 5px 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.archive-link:hover {
+    color: var(--text-color);
+    transform: translateX(5px);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+/* Plus / minus toggle icon */
+
+summary::after {
+    content: '+';
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-left: 10px;
+    transition: color 0.2s ease;
+}
+
+details[open] > summary::after {
+    content: '−';
+    color: var(--text-color);
+}
+
+/* Subtle fade-in for opened content */
+
+details[open] > .accordion-inner,
+details[open] > .accordion-content,
+details[open] > details {
+    animation: archive-fade-in 0.4s ease-out;
+}
+
+@keyframes archive-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
