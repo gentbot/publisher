@@ -1,80 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All the AI | The Static Journal</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Typography: Playfair Display for elegance, Inter for UI/Body -->
+    <!-- CSS injected by script -->
+    <link rel="stylesheet" href="../../../base.css">
+
+    <title>All the AI</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-    <!-- External stylesheet: your script should pass css_path metadata -->
-    <link rel="stylesheet" href="../../../base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
+<div class="container">
+
+    <!-- SITE HEADER -->
     <header>
-        <div class="container">
-            <a href="/" class="site-title">The Static Journal</a>
-        </div>
+        <a href="/" class="site-title">The Static Journal</a>
     </header>
 
-    <main class="container">
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumb-nav">
+        <a href="/2025">2025</a>
+        <span class="breadcrumb-separator">›</span>
 
-        <!-- BREADCRUMB: YEAR / MONTH / DAY / TITLE -->
-        <!-- Uses placeholders if any component is missing -->
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-            <!-- Year -->
-                            <a href="/2025">2025</a>
-                        <span class="breadcrumb-separator">›</span>
+        <a href="/2025/05">05</a>
+        <span class="breadcrumb-separator">›</span>
 
-            <!-- Month -->
-                            <a href="/2025/05">05</a>
-                        <span class="breadcrumb-separator">›</span>
+        <a href="/2025/05/10">10</a>
+        <span class="breadcrumb-separator">›</span>
 
-            <!-- Day -->
-                            <a href="/2025/05/10">10</a>
-                        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">All the AI</span>
+    </nav>
 
-            <!-- Current article -->
-            <span class="breadcrumb-current">All the AI</span>
-        </nav>
+    <!-- ARTICLE -->
+    <article>
 
-        <article>
-            <header>
-                <h1 class="post-title">All the AI</h1>
+        <h1 class="post-title">All the AI</h1>
 
-                                    <p class="post-subhead">Setup
-automated ai systems</p>
-                
-                <div class="post-meta">
-                    <!-- created is already formatted (e.g., "January 12, 2025") -->
-                    <span>May 10, 2025</span>
+        <!-- OPTIONAL SUBHEAD -->
+                <div class="post-subhead">Setup automated ai
+systems</div>
+        
+        <!-- METADATA -->
+        <div class="post-meta">
+            <span>May 10, 2025</span>
+                    </div>
 
-                                    </div>
-            </header>
+        <!-- MAIN CONTENT -->
+        <div class="post-content">
+            <p>Looking into the current list of tools available in terms
+            of ai. Currently working on connecting chat, audio
+            generation, image and video generation ( Automatic1111,
+            comfyui). There are other items but currently connecting all
+            of these items while also making sure they are available on
+            a local network via api to help with integrations into other
+            possible applications is tricky enough.</p>
+            <p>The immediate fixation is getting comfyui to work. Mostly
+            it is a skill issue. The process is to slowly get a few
+            useful workflows put together and make those available one
+            at a time to other applications.</p>
+        </div>
 
-            <div class="post-content">
-                <p>Looking into the current list of tools available in
-                terms of ai. Currently working on connecting chat, audio
-                generation, image and video generation ( Automatic1111,
-                comfyui). There are other items but currently connecting
-                all of these items while also making sure they are
-                available on a local network via api to help with
-                integrations into other possible applications is tricky
-                enough.</p>
-                <p>The immediate fixation is getting comfyui to work.
-                Mostly it is a skill issue. The process is to slowly get
-                a few useful workflows put together and make those
-                available one at a time to other applications.</p>
-            </div>
-        </article>
-
-        <!-- Post navigation intentionally removed for now (Q6 = YES) -->
-
-    </main>
-
+    </article>
+</div>
 </body>
 </html>
