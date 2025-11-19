@@ -213,12 +213,19 @@ h1.post-title {
 
 .archive-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
     font-weight: 500;
-    margin: 3rem 0 2rem;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: var(--text-color);
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+
+    /* matches the subtle top-aligned style in the mock */
+    padding-left: 0.15rem;
 }
+
 
 .archive-root {
     margin-bottom: 6rem;
